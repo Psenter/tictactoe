@@ -78,6 +78,22 @@ DISPLAY OUTCOME OF GAME
 RESTART GAME
 ## PROGRAM END.
 
+## ATMOIC DESGIN:
+
+# ATOMS:
+* TicTacToe heading name
+* Tile buttons
+* Display for whose turn it is
+* Display for winner/tie game
+* Reset button for new game
+
+# MOLECULES:
+* Footer containing whose turn, winner/tie game, and reset button
+* Game board and header
+
+# ORAGANISM:
+* Entire functioning site
+
 # FUNCTIONAL:
 ```
 players = [
