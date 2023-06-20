@@ -56,17 +56,44 @@ RESTART GAME
 
 # PROCEDURAL:
 ```
+players = [
+    PLAYERONE = "X"
+    PLAYERTWO = "O"
+]
+
+//NEED TO LOOK INTO HOW TO ACTUALLY IMPLEMENT THIS
+boardLocations = [
+    {
+        A1, A2, A3
+    }
+    {
+        B1, B2, B3
+    }
+    {
+        C1, C2, C3
+    }
+]
+
 loadUI () {
     //loads board
     //gives each tile a number/marking to make it individual
     //loads restart button and holds restart function
+    //calls in whosTurn
+    //calls in winOrTie
 }
 
 whosTurn () {
     //shows whos turn it is
     //displays where the user clicked
     //keeps track of clicked tiles
-    //checks if anyone has won or if its a tie
-    //displays winner/tie message
     //changes whos turn it is and runs again
 }
+
+winOrTie () {
+    //checks all 8 ways game can be won
+    //checks if there is 3 "X" or "O" in a row
+    //IF 3 in a row, displays winner
+    //ELSE IF moves equal 9, display tie
+    //ELSE continue game
+}
+```
