@@ -14,6 +14,9 @@ Should have:
 Could have:
 1. Pick which symbol you start with
 -->
+<!--
+MAKE SURE TO USE VERB-NOUN (ACTION-OBJ) NAMES FOR FUNCTIONS
+-->
 
 # INIT 
 
@@ -25,7 +28,7 @@ Could have:
 
 >How to tell who wins or if it is a tie
 
->How to tell whos turn it is/which symbol to use
+>How to tell whose turn it is/which symbol to use
 
 >How to keep track of moves made
 
@@ -84,33 +87,34 @@ players = [
 
 //NEED TO LOOK INTO HOW TO ACTUALLY IMPLEMENT THIS
 boardLocations = [
-    {
-        A1, A2, A3
-    }
-    {
-        B1, B2, B3
-    }
-    {
-        C1, C2, C3
-    }
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
 ]
 
 loadUI () {
     //loads board
     //gives each tile a number/marking to make it individual
     //loads restart button and holds restart function
-    //calls in whosTurn
+    //calls in whoseTurn
     //calls in winOrTie
 }
 
-whosTurn () {
-    //shows whos turn it is
+switchTurn () {
+    //shows whose turn it is
     //displays where the user clicked
     //keeps track of clicked tiles
-    //changes whos turn it is and runs again
+    //changes whose turn it is and runs again
 }
 
-winOrTie () {
+checkWinTie () {
     //checks all 8 ways game can be won
     //checks if there is 3 "X" or "O" in a row
     //IF 3 in a row, displays winner
@@ -118,3 +122,15 @@ winOrTie () {
     //ELSE continue game
 }
 ```
+<!--
+      |     |     
+   0  |  1  |  2  
+ _____|_____|_____
+      |     |     
+   3  |  4  |  5  
+ _____|_____|_____
+      |     |     
+   6  |  7  |  8  
+      |     | 
+THIS IS WHAT THE BOARD SHOULD CLOSELY RESEMBLE
+-->
