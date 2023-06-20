@@ -17,7 +17,7 @@ Could have:
 
 # INIT 
 
-## Notes/Questions
+## Notes/Questions:
 
 >How to get board to display??
 
@@ -31,7 +31,28 @@ Could have:
 
 >Show who's turn it is
 
-## Steps
+## PROCEDURES:
+
+There are 2 players (X and O)
+
+A 9 square board will appear
+
+Players will take turns placing their symbols (X and O) on the board
+
+To win you need to get 3 of your symbols in a row
+
+There are 8 ways to win in tictactoe
+1. 3 vertically 
+2. 3 diagonally 
+4. 2 horizontally
+
+If the board fills up (the ninth move is made) the game ends in a tie
+
+Once the game has ended it will display the winning player, or if it is a tie
+
+The game can be reset by a button at the bottom of the board
+
+## Steps:
 1. User travels to site
 2. empty board displays on screen
 3. when a tile is clicked it is marked with the correct symbol
@@ -54,7 +75,7 @@ DISPLAY OUTCOME OF GAME
 RESTART GAME
 ## PROGRAM END.
 
-# PROCEDURAL:
+# FUNCTIONAL:
 ```
 players = [
     PLAYERONE = "X"
