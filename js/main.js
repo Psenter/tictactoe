@@ -16,7 +16,7 @@ let tileLocations = [
 function loadUi () {
     for (let i = 1; i < 4; i++) {
         let row = document.createElement("div");
-        row.classList.add("row");
+        row.classList.add("row", "justify-content-center");
         for (let i = 1; i < 4; i++) {
             let tile = document.createElement("div");
             tile.setAttribute("id", tileLocations[tileID]);
