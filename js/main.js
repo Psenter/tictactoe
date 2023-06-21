@@ -16,12 +16,15 @@ let tileLocations = [
 function loadUi () {
     for (let i = 1; i < 4; i++) {
         let row = document.createElement("div");
-        row.classList.add("row");
+        row.classList.add("row", "justify-content-center");
         for (let i = 1; i < 4; i++) {
             let tile = document.createElement("div");
             tile.setAttribute("id", tileLocations[tileID]);
             tileID++
             tile.classList.add("border", "border-dark", "col", "pt-5", "pb-5", "col-3");
+            tile.addEventListener('click', function () {
+                tile.textContent = 'clicked';
+            })
             row.appendChild(tile);
         }
     gameBoard.appendChild(row);
@@ -31,7 +34,7 @@ function loadUi () {
     restartbutton.textContent = "Restart Game.";
     restartbutton.classList.add("mt-5");
     restartbutton.addEventListener("click", function() {
-        window.addEventListener("load", loadUi);
+        window.location.reload();
     })
     gameBoard.appendChild(restartbutton);
 }
