@@ -1,4 +1,5 @@
 let gameBoard = document.getElementById("boardGame");
+let tileID = 0
 
 let tileLocations = [
     0,
@@ -18,6 +19,8 @@ function loadUi () {
         row.classList.add("row");
         for (let i = 1; i < 4; i++) {
             let tile = document.createElement("div");
+            tile.setAttribute("id", tileLocations[tileID]);
+            tileID++
             tile.classList.add("border", "border-dark", "col", "pt-5", "pb-5", "col-3");
             row.appendChild(tile);
         }
