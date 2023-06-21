@@ -1,5 +1,17 @@
 let gameBoard = document.getElementById("boardGame");
 
+let tileLocations = [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+]
+
 function loadUi () {
     for (let i = 1; i < 4; i++) {
         let row = document.createElement("div");
