@@ -34,7 +34,7 @@ function loadUi () {
     restartbutton.textContent = "Restart Game.";
     restartbutton.classList.add("mt-5");
     restartbutton.addEventListener("click", function() {
-        window.addEventListener("load", loadUi);
+        window.location.reload();
     })
     gameBoard.appendChild(restartbutton);
 }
