@@ -11,6 +11,15 @@ function loadUi () {
         }
     gameBoard.appendChild(row);
     }
+    
+    let restartbutton = document.createElement("button");
+    restartbutton.textContent = "Restart Game.";
+    restartbutton.classList.add("mt-5");
+    restartbutton.addEventListener("click", function() {
+        window.location.reload();
+        loadUi();
+    })
+    gameBoard.appendChild(restartbutton);
 }
 
 loadUi();
