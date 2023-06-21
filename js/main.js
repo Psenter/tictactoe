@@ -1,5 +1,5 @@
 let gameBoard = document.getElementById("boardGame");
-let tileID = 0
+let tileID = 0;
 
 let tileLocations = [
     0,
@@ -31,8 +31,7 @@ function loadUi () {
     restartbutton.textContent = "Restart Game.";
     restartbutton.classList.add("mt-5");
     restartbutton.addEventListener("click", function() {
-        window.location.reload();
-        loadUi();
+        window.addEventListener("load", loadUi);
     })
     gameBoard.appendChild(restartbutton);
 }
