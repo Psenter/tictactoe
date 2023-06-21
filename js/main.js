@@ -22,6 +22,9 @@ function loadUi () {
             tile.setAttribute("id", tileLocations[tileID]);
             tileID++
             tile.classList.add("border", "border-dark", "col", "pt-5", "pb-5", "col-3");
+            tile.addEventListener('click', function () {
+                tile.textContent = 'clicked';
+            })
             row.appendChild(tile);
         }
     gameBoard.appendChild(row);
