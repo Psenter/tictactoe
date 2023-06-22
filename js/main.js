@@ -1,11 +1,3 @@
-//USE LATER
-/*
-//Adds winner text to screen
-  let winner = document.createElement("h2");
-  winner.textContent = "The winner is " + players[0] + "!";
-  gameBoard.appendChild(winner);
-*/
-
 //Pulls in parent div
 let gameBoard = document.getElementById("boardGame");
 let tileID = 0;
@@ -16,6 +8,7 @@ let tileLocations = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 //array to hold symbols for players
 let players = [(playerOne = "X"), (playerTwo = "O")];
 
+//array to hold all win combos
 let winConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -34,8 +27,15 @@ function loadUi() {
   
   //Adds title to the page
   let title = document.createElement("h1");
+  title.classList.add("pb-3")
   title.textContent = "TicTacToe!";
   gameBoard.appendChild(title);
+
+  //Adds winner or tie text to screen
+  let winner = document.createElement("h2");
+  winner.setAttribute("id", "winner");
+  winner.classList.add("pb-3")
+  gameBoard.appendChild(winner);
 
   //creates 3 rows for the board
   for (let i = 1; i < 4; i++) {
@@ -59,7 +59,8 @@ function loadUi() {
         "col",
         "pt-5",
         "pb-5",
-        "col-3"
+        "little-padding",
+        "col-2"
       );
       //adds event listener to buttons
       tile.addEventListener("click", switchTurns);
@@ -109,10 +110,16 @@ function switchTurns(event) {
 }
 
 function checkWinTie(currentPlayer) {
+  
+  //gets the winner h2 element from DOM
+  let playerWin = document.getElementById("winner");
+  
   //checks for winning combinations
   for (let i = 0; i < winConditions.length; i++) {
+    
     //sets [a, b, c] to the combinations from the winConditions array
     const [a, b, c] = winConditions[i];
+    
     //gets the buttons made from loadUi and sets them equal to each tile
     const tileA = document.getElementById(tileLocations[a]);
     const tileB = document.getElementById(tileLocations[b]);
@@ -121,6 +128,10 @@ function checkWinTie(currentPlayer) {
     //checks if one of the winning combos has happened
     //takes current player from switchTurn function
     if (tileA.textContent === currentPlayer && tileB.textContent === currentPlayer && tileC.textContent === currentPlayer) {
+     
+      //changes the text of winner h2 element
+      playerWin.textContent = currentPlayer + " is the winner!";
+      
       //logs if a player has won the game
       console.log(currentPlayer + " wins!");
       return;
@@ -130,8 +141,10 @@ function checkWinTie(currentPlayer) {
   //method to check if all tiles have been filled by a symbol
   //goes over every tile in the tileLocations array
   const allTilesFilled = tileLocations.every((tile) => {
+    
     //gets corresponding element from DOM
     const currentTile = document.getElementById(tile);
+    
     //checks if tile doesnt have empty string
     //returns if the statement is true or false 
     return currentTile.textContent !== "";
@@ -139,8 +152,9 @@ function checkWinTie(currentPlayer) {
 
   //if allTilesFilled returns true says its a tie
   if (allTilesFilled) {
-    //logs that it is a tie
-    console.log("It's a tie!");
+    
+    //changes the text of winner h2 element
+    playerWin.textContent = "The game is a tie!";
   }
 }
 
