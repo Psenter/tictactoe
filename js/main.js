@@ -1,3 +1,11 @@
+//USE LATER
+/*
+//Adds winner text to screen
+  let winner = document.createElement("h2");
+  winner.textContent = "The winner is " + players[0] + "!";
+  gameBoard.appendChild(winner);
+*/
+
 //Pulls in parent div
 let gameBoard = document.getElementById("boardGame");
 let tileID = 0;
@@ -8,20 +16,41 @@ let tileLocations = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 //array to hold symbols for players
 let players = [(playerOne = "X"), (playerTwo = "O")];
 
+let winConditions = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
 let playerTurn = 0;
 
 //displays the board on the screen
 function loadUi() {
+  
+  //Adds title to the page
+  let title = document.createElement("h1");
+  title.textContent = "TicTacToe!";
+  gameBoard.appendChild(title);
+
   //creates 3 rows for the board
   for (let i = 1; i < 4; i++) {
     let row = document.createElement("div");
+    
     //adds classes to the rows
     row.classList.add("row", "justify-content-center");
+    
     //creates 3 columns for each row
     for (let j = 1; j < 4; j++) {
       let tile = document.createElement("button");
+      
       //gives div an id from tilesLocation array
       tile.setAttribute("id", tileLocations[tileID]);
+
       //increases tileID by 1
       tileID++;
       tile.classList.add(
@@ -34,6 +63,7 @@ function loadUi() {
       );
       //adds event listener to buttons
       tile.addEventListener("click", switchTurns);
+
       //adds each column to the row
       row.appendChild(tile);
     }
@@ -45,28 +75,37 @@ function loadUi() {
   let restartbutton = document.createElement("button");
   restartbutton.textContent = "Restart Game.";
   restartbutton.classList.add("mt-5");
+
   //when button is clicked it restarts the game
   restartbutton.addEventListener("click", function () {
     window.location.reload();
   });
+
   //adds button to the parent div
   gameBoard.appendChild(restartbutton);
 }
 
 //function to swap between players
 function switchTurns(event) {
+
   //targets the tile that was clicked
   let clickedTile = event.target;
+
   //gets the symbol from players array
   let currentPlayer = players[playerTurn];
+
   //sets the text of the button to the player symbol
   clickedTile.textContent = currentPlayer;
+
   //makes an already clicked button unable to be clicked again
   clickedTile.disabled = true;
+
   //adds one to playerTurn making it go to the next symbol
   //when playerTurn exceeds the array length it wraps back to 0
   playerTurn = (playerTurn + 1) % players.length;
-  console.log(playerTurn);
+}
+
+function checkWinTie () {
 }
 
 loadUi();
