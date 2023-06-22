@@ -103,9 +103,45 @@ function switchTurns(event) {
   //adds one to playerTurn making it go to the next symbol
   //when playerTurn exceeds the array length it wraps back to 0
   playerTurn = (playerTurn + 1) % players.length;
+
+  //everytime a turn is taken it calls in the function
+  checkWinTie(currentPlayer);
 }
 
-function checkWinTie () {
+function checkWinTie(currentPlayer) {
+  //checks for winning combinations
+  for (let i = 0; i < winConditions.length; i++) {
+    //sets [a, b, c] to the combinations from the winConditions array
+    const [a, b, c] = winConditions[i];
+    //gets the buttons made from loadUi and sets them equal to each tile
+    const tileA = document.getElementById(tileLocations[a]);
+    const tileB = document.getElementById(tileLocations[b]);
+    const tileC = document.getElementById(tileLocations[c]);
+
+    //checks if one of the winning combos has happened
+    //takes current player from switchTurn function
+    if (tileA.textContent === currentPlayer && tileB.textContent === currentPlayer && tileC.textContent === currentPlayer) {
+      //logs if a player has won the game
+      console.log(currentPlayer + " wins!");
+      return;
+    }
+  }
+
+  //method to check if all tiles have been filled by a symbol
+  //goes over every tile in the tileLocations array
+  const allTilesFilled = tileLocations.every((tile) => {
+    //gets corresponding element from DOM
+    const currentTile = document.getElementById(tile);
+    //checks if tile doesnt have empty string
+    //returns if the statement is true or false 
+    return currentTile.textContent !== "";
+  });
+
+  //if allTilesFilled returns true says its a tie
+  if (allTilesFilled) {
+    //logs that it is a tie
+    console.log("It's a tie!");
+  }
 }
 
 loadUi();
