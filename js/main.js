@@ -59,9 +59,9 @@ function loadUi() {
         "col",
         "pt-5",
         "pb-5",
-        "little-padding",
         "col-2"
       );
+
       //adds event listener to buttons
       tile.addEventListener("click", switchTurns);
 
@@ -131,9 +131,7 @@ function checkWinTie(currentPlayer) {
      
       //changes the text of winner h2 element
       playerWin.textContent = currentPlayer + " is the winner!";
-      
-      //logs if a player has won the game
-      console.log(currentPlayer + " wins!");
+
       return;
     }
   }

@@ -1,5 +1,4 @@
-<!-- 
-MoSCow
+MoSCow:
 
 Must have:
 1. 2 spots for players
@@ -13,7 +12,6 @@ Should have:
 
 Could have:
 1. Pick which symbol you start with
--->
 <!--
 MAKE SURE TO USE VERB-NOUN (ACTION-OBJ) NAMES FOR FUNCTIONS
 -->
@@ -126,26 +124,26 @@ winConditions = [
 ]
 
 loadUI () {
+    //displays title
+    //displays winner text
     //loads board
-    //gives each tile a number/marking to make it individual
-    //loads restart button and holds restart function
-    //calls in whoseTurn
-    //calls in winOrTie
+    //gives each tile an id to make it individual
+    //displays restart button and holds restart function
+    //calls in switchTurn everytime a tile is clicked
 }
 
 switchTurn () {
-    //shows whose turn it is
-    //displays where the user clicked
     //keeps track of clicked tiles
+    //doesnt let tiles be clicked more than once
     //changes whose turn it is and runs again
+    //calls in checkWinTie to check what tiles have been clicked
 }
 
 checkWinTie () {
-    //checks all 8 ways game can be won
-    //checks if there is 3 "X" or "O" in a row
-    //IF 3 in a row, displays winner
-    //ELSE IF moves equal 9, display tie
-    //ELSE continue game
+    //checks all ways to win the game
+    //IF one of the ways to win was completed, changes text to display who has won.
+    //ElSE checks if all tiles have been filled and changes text to display that it is a tie
+    //ELSE nothing is changed and it waits for the next turn to run the function and check again
 }
 ```
 <!--
