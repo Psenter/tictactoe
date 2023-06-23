@@ -59,7 +59,6 @@ function loadUi() {
         "col",
         "pt-5",
         "pb-5",
-        "little-padding",
         "col-2"
       );
 
